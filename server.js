@@ -1,5 +1,4 @@
 import express from "express";
-import { URL } from "url";
 import cors from "cors";
 
 const app = express();
@@ -19,10 +18,18 @@ app.get("/", (req, res) => {
   const { url } = req.query;
 
   if (!url) {
-    console.log(`Invalid redirect URL: ${url}`);
     return res.status(400).send("Invalid redirect URL provided");
   }
-  return res.redirect(url);
+  return res.redirect(redirectUrl);
+});
+
+app.post("/", (req, res) => {
+  const { url } = req.query;
+
+  if (!url) {
+    return res.status(400).send("Invalid redirect URL provided");
+  }
+  return res.redirect(redirectUrl);
 });
 
 // Start the server
