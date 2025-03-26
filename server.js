@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
   const { url } = req.query;
 
   if (!url) {
-    console.log(`Invalid redirect URL: ${redirectUrl}`);
+    console.log(`Invalid redirect URL: ${url}`);
     return res.status(400).send("Invalid redirect URL provided");
   }
-  return res.redirect(redirectUrl);
+  return res.redirect(url);
 });
 
 // Start the server
