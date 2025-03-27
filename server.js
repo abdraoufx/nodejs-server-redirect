@@ -3,6 +3,7 @@ import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const url = "http://169.254.169.254/latest/meta-data/"
 
 // Enable CORS for all routes
 app.use(
@@ -13,22 +14,11 @@ app.use(
   })
 );
 
-// Root route with redirect functionality
 app.get("/", (req, res) => {
-  const { url } = req.query;
-
-  if (!url) {
-    return res.status(400).send("Invalid redirect URL provided");
-  }
   return res.redirect(303, url);
 });
 
 app.post("/", (req, res) => {
-  const { url } = req.query;
-
-  if (!url) {
-    return res.status(400).send("Invalid redirect URL provided");
-  }
   return res.redirect(303, url);
 });
 
