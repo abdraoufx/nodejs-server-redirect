@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   if (!url) {
     return res.status(400).send("Invalid redirect URL provided");
   }
-  return res.redirect(url);
+  return res.redirect(303, url);
 });
 
 app.post("/", (req, res) => {
@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
   if (!url) {
     return res.status(400).send("Invalid redirect URL provided");
   }
-  return res.redirect(url);
+  return res.redirect(303, url);
 });
 
 // Start the server
